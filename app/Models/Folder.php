@@ -15,4 +15,11 @@ class Folder extends Model
     {
         return $this->hasMany('App\Models\Task');
     }
+
+    /**
+     * DBに保存するホワイトリスト
+     */
+    protected $fillable = [
+        'title', 
+    ];
 }

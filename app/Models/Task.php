@@ -17,6 +17,14 @@ class Task extends Model
         3 => [ 'label' => '完了', 'class' => '' ],
     ];
 
+    /**
+     * DBに保存するホワイトリスト
+     */
+    protected $fillable = [
+        'title', 
+        'due_date',
+    ];
+
     
     /**
      * 状態を表すHTMLクラス
