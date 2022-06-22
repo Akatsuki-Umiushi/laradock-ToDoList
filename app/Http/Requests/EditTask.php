@@ -76,4 +76,6 @@ class EditTask extends CreateTask
             'status.in' => ':attribute には ' . $status_labels. ' のいずれかを指定してください。',
         ];
     }
+
+    
 }
