@@ -30,7 +30,7 @@ class AddUserIdToFolders extends Migration
     public function down()
     {
         Schema::table('folders', function (Blueprint $table) {
-            //
+             $table->dropColumn('user_id');
         });
     }
 }

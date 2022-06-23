@@ -17,6 +17,7 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
+    @include('layouts.header')
     <body class="bg-light font-sans antialiased">
         {{ $slot }}
     </body>
