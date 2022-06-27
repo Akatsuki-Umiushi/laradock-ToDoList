@@ -24,7 +24,7 @@
                 <div class="mb-3">
                     <x-jet-label value="{{ __('Password') }}" />
 
-                    <x-jet-input class="{{ $errors->has('password') ? 'is-invalid' : '' }}" type="password"
+                    <x-jet-input cphplass="{{ $errors->has('password') ? 'is-invalid' : '' }}" type="password"
                                  name="password" required autocomplete="new-password" />
                     <x-jet-input-error for="password"></x-jet-input-error>
                 </div>

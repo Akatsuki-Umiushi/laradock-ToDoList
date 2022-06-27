@@ -5,6 +5,10 @@
 @endsection
 
 @section('content')
+@php
+// dd($folder);
+// dd($folder);
+@endphp
   <div class="container">
     <div class="row">
       <div class="col col-md-offset-3 col-md-6">
@@ -19,7 +23,7 @@
               </div>
             @endif
             <form
-                action="{{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id]) }}"
+                action="{{ route('tasks.edit', ['folder' => $folder->id, 'task' => $task->id ]) }}"
                 method="POST"
             >
               @csrf
