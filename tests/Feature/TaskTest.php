@@ -16,11 +16,12 @@ class TaskTest extends TestCase
     /**
      * 各テストメソッドの実行前に呼ばれる
      */
-    public function setUp(): void
+    public function setUp() :void
     {
         parent::setUp();
 
         // テストケース実行前にフォルダデータを作成する
+        $this->seed('UsersTableSeeder');
         $this->seed('FoldersTableSeeder');
     }
 
@@ -30,6 +31,8 @@ class TaskTest extends TestCase
      */
     public function due_date_should_be_date()
     {
+        $this->withoutExceptionHandling();
+
         $response = $this->post('/folders/1/tasks/create', [
             'title' => 'Sample task',
             'due_date' => 123, // 不正なデータ（数値）
@@ -44,6 +47,7 @@ class TaskTest extends TestCase
      */
     public function due_date_should_not_be_past()
     {
+        $this->withoutExceptionHandling();
         $response = $this->post('/folders/1/tasks/create', [
             'title' => 'Sample task',
             'due_date' => Carbon::yesterday()->format('Y/m/d'), // 不正なデータ（昨日の日付）
@@ -52,13 +56,14 @@ class TaskTest extends TestCase
         $response->assertInvalid('due_date');
     }
 
-    
+
     /**
      * 状態が定義された値ではない場合はバリデーションエラー
     * @test
     */
     public function status_should_be_within_defined_numbers()
     {
+        $this->withoutExceptionHandling();
         $this->seed('TasksTableSeeder');
 
         $response = $this->post('/folders/1/tasks/1/edit', [
@@ -69,5 +74,5 @@ class TaskTest extends TestCase
 
         $response->assertInvalid('status');
     }
-    
+
 }

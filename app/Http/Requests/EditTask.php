@@ -36,7 +36,9 @@ class EditTask extends CreateTask
         $CreateTaskAttributes = parent::CreateTaskAttributes();
         
         // statusを追加
-        return $CreateTaskAttributes  'status';
+        return $CreateTaskAttributes + $this->only([
+            'status',
+        ]);
     }
 
     /**
